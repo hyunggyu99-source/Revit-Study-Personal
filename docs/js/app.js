@@ -29,7 +29,6 @@
   /* ===== i18n Dictionary ===== */
   var I18N = {
     title:            { ko:'HVAC 기계설비 분석 대시보드',        en:'HVAC Mechanical Analysis Dashboard' },
-    demo:             { ko:'데모',                                 en:'Demo' },
     uploadTitle:      { ko:'HVAC / EnergyPlus HTML 보고서 업로드', en:'HVAC / EnergyPlus HTML Report Upload' },
     uploadDesc:       { ko:'여기에 HTML 파일을 드래그하거나 클릭하여 선택하세요', en:'Drag & drop HTML files here, or click to browse' },
     uploadHint:       { ko:'지원: K-HVAC Systems, Annual Building, Facility Component Load Summary', en:'Supports: K-HVAC Systems, Annual Building, Facility Component Load Summary' },
@@ -115,7 +114,6 @@
     eui:              { ko:'에너지원단위',          en:'EUI' },
     buildingArea:     { ko:'건물 면적',            en:'Building Area' },
     loaded:           { ko:'로드 완료: ',           en:'Loaded: ' },
-    demoLoaded:       { ko:'데모 데이터 로드됨 (2개 보고서)', en:'Demo data loaded (2 reports)' },
     parseError:       { ko:'파싱 오류: ',           en:'Parse error: ' },
     uploadHtmlOnly:   { ko:'.html 또는 .htm 파일을 업로드하세요', en:'Please upload .html or .htm files' },
     timestamp:        { ko:'타임스탬프',            en:'Timestamp' },
@@ -441,7 +439,6 @@
     $id('btnAddMore').addEventListener('click', function () { fileInput.click(); });
     $id('btnClearAll').addEventListener('click', clearAll);
     $id('btnTheme').addEventListener('click', toggleTheme);
-    $id('btnDemo').addEventListener('click', loadDemo);
 
     if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
     updateThemeIcon();
@@ -672,12 +669,6 @@
 
   function destroyAllCharts() {
     for (var k in charts) { if (charts[k]) { charts[k].destroy(); delete charts[k]; } }
-  }
-
-  function loadDemo() {
-    reports = [RevitParser.getDemoData(), RevitParser.getDemoData2()];
-    toast(t('demoLoaded'), 'success');
-    afterLoad();
   }
 
   /* ===== UI ===== */

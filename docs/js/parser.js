@@ -577,93 +577,9 @@ var RevitParser = (function () {
     }
   }
 
-  /* ====================== Demo Data ====================== */
-  function getDemoData() {
-    var r = createEmpty('Demo_FacilityComponentLoadSummary.html');
-    r.reportType = 'Facility Component Load Summary';
-    r.facility = 'Facility';
-    r.building = 'bldg-1';
-    r.timestamp = '2026-02-05 17:28:31';
-
-    r.peakLoads.cooling = [
-      {_name:'People','':'People','Sensible - Instant [Btu/h]':1705.60,'Sensible - Delayed [Btu/h]':134.74,'Sensible - Return Air [Btu/h]':0,'Latent [Btu/h]':1949.26,'Total [Btu/h]':3789.61,'%Grand Total':7.38,'Related Area [ft2]':72.54,'Total per Area [Btu/h-ft2]':178.25},
-      {_name:'Lights','':'Lights','Sensible - Instant [Btu/h]':182.27,'Sensible - Delayed [Btu/h]':0,'Sensible - Return Air [Btu/h]':0,'Latent [Btu/h]':0,'Total [Btu/h]':182.27,'%Grand Total':0.36,'Related Area [ft2]':72.54,'Total per Area [Btu/h-ft2]':8.57},
-      {_name:'Equipment','':'Equipment','Sensible - Instant [Btu/h]':86.74,'Sensible - Delayed [Btu/h]':0,'Latent [Btu/h]':0,'Total [Btu/h]':86.74,'%Grand Total':0.17,'Related Area [ft2]':72.54,'Total per Area [Btu/h-ft2]':4.08},
-      {_name:'Infiltration','':'Infiltration','Sensible - Instant [Btu/h]':1986.57,'Latent [Btu/h]':3169.50,'Total [Btu/h]':5156.07,'%Grand Total':10.05,'Related Area [ft2]':2764.31,'Total per Area [Btu/h-ft2]':6.36},
-      {_name:'Roof','':'Roof','Sensible - Delayed [Btu/h]':27439.07,'Total [Btu/h]':27439.07,'%Grand Total':53.46,'Related Area [ft2]':1299.14,'Total per Area [Btu/h-ft2]':72.06},
-      {_name:'Interzone Ceiling','':'Interzone Ceiling','Sensible - Delayed [Btu/h]':-101.7,'Total [Btu/h]':-101.7,'%Grand Total':-0.2,'Related Area [ft2]':69.67,'Total per Area [Btu/h-ft2]':-5.0},
-      {_name:'Exterior Wall','':'Exterior Wall','Sensible - Delayed [Btu/h]':11623.52,'Total [Btu/h]':11623.52,'%Grand Total':22.64,'Related Area [ft2]':2764.31,'Total per Area [Btu/h-ft2]':14.35},
-      {_name:'Interzone Wall','':'Interzone Wall','Sensible - Delayed [Btu/h]':-695.2,'Total [Btu/h]':-695.2,'%Grand Total':-1.4,'Related Area [ft2]':1569.42,'Total per Area [Btu/h-ft2]':-1.5},
-      {_name:'Interzone Floor','':'Interzone Floor','Sensible - Delayed [Btu/h]':130.60,'Total [Btu/h]':130.60,'%Grand Total':0.25,'Related Area [ft2]':72.54,'Total per Area [Btu/h-ft2]':6.14},
-      {_name:'Fenestration Conduction','':'Fenestration Conduction','Sensible - Instant [Btu/h]':3600.61,'Total [Btu/h]':3600.61,'%Grand Total':7.01,'Related Area [ft2]':832.47,'Total per Area [Btu/h-ft2]':14.76},
-      {_name:'Fenestration Solar','':'Fenestration Solar','Sensible - Delayed [Btu/h]':61.29,'Total [Btu/h]':61.29,'%Grand Total':0.12,'Related Area [ft2]':832.47,'Total per Area [Btu/h-ft2]':0.25},
-      {_name:'Opaque Door','':'Opaque Door','Sensible - Delayed [Btu/h]':56.59,'Total [Btu/h]':56.59,'%Grand Total':0.11,'Related Area [ft2]':215.36,'Total per Area [Btu/h-ft2]':0.90},
-      {_name:'Grand Total','':'Grand Total','Sensible - Instant [Btu/h]':7561.80,'Sensible - Delayed [Btu/h]':38648.84,'Sensible - Return Air [Btu/h]':0,'Latent [Btu/h]':5118.76,'Total [Btu/h]':51329.40,'%Grand Total':100,'Related Area [ft2]':0,'Total per Area [Btu/h-ft2]':0}
-    ];
-    r.peakLoads.heating = [
-      {_name:'People','':'People','Total [Btu/h]':0,'%Grand Total':0,'Related Area [ft2]':72.54},
-      {_name:'Infiltration','':'Infiltration','Sensible - Instant [Btu/h]':-7306.8,'Latent [Btu/h]':-1931.6,'Total [Btu/h]':-9238.4,'%Grand Total':11.0,'Related Area [ft2]':2764.31,'Total per Area [Btu/h-ft2]':-11.4},
-      {_name:'Roof','':'Roof','Sensible - Delayed [Btu/h]':-27155.0,'Total [Btu/h]':-27155.0,'%Grand Total':32.32,'Related Area [ft2]':1299.14,'Total per Area [Btu/h-ft2]':-71.3},
-      {_name:'Exterior Wall','':'Exterior Wall','Sensible - Delayed [Btu/h]':-31902.9,'Total [Btu/h]':-31902.9,'%Grand Total':37.97,'Related Area [ft2]':2764.31,'Total per Area [Btu/h-ft2]':-39.4},
-      {_name:'Fenestration Conduction','':'Fenestration Conduction','Sensible - Instant [Btu/h]':-15705.7,'Total [Btu/h]':-15705.7,'%Grand Total':18.69,'Related Area [ft2]':832.47,'Total per Area [Btu/h-ft2]':-64.4},
-      {_name:'Grand Total','':'Grand Total','Sensible - Instant [Btu/h]':-23012.5,'Sensible - Delayed [Btu/h]':-59073.6,'Latent [Btu/h]':-1931.6,'Total [Btu/h]':-84017.7,'%Grand Total':100}
-    ];
-
-    r.zones = [
-      {_name:'1 STAIRWELL','':'1 STAIRWELL','Area [ft2]':41.57,'Conditioned (Y/N)':'Yes','Part of Total Floor Area (Y/N)':'Yes','Volume [ft3]':1207.57,'Multipliers':1.00,'Above Ground Gross Wall Area [ft2]':196.78,'Lighting [Btu/h-ft2]':2.0470,'People [ft2 per person]':36.89,'Plug and Process [Btu/h-ft2]':1.0235},
-      {_name:'6F_OPENWORKSPACE_VAV-1','':'6F_OPENWORKSPACE_VAV-1','Area [ft2]':0,'Conditioned (Y/N)':'Yes','Volume [ft3]':6764.08,'Multipliers':1.00,'Above Ground Gross Wall Area [ft2]':1066.93,'Window Glass Area [ft2]':696.19},
-      {_name:'7F_OPENWORKSPACE_VAV-1','':'7F_OPENWORKSPACE_VAV-1','Area [ft2]':3.05,'Conditioned (Y/N)':'Yes','Volume [ft3]':1648.49,'Multipliers':1.00,'Above Ground Gross Wall Area [ft2]':164.80,'Window Glass Area [ft2]':29.77,'Lighting [Btu/h-ft2]':3.7528,'People [ft2 per person]':3.99,'Plug and Process [Btu/h-ft2]':5.1175},
-      {_name:'7F_RESTROOM_FCU-1','':'7F_RESTROOM_FCU-1','Area [ft2]':27.92,'Conditioned (Y/N)':'Yes','Volume [ft3]':298.37,'Multipliers':1.00,'Above Ground Gross Wall Area [ft2]':179.55,'Lighting [Btu/h-ft2]':3.0705,'People [ft2 per person]':98.44,'Plug and Process [Btu/h-ft2]':1.0235},
-      {_name:'Total','':'Total','Area [ft2]':72.54,'Volume [ft3]':14751.86,'Above Ground Gross Wall Area [ft2]':2764.31,'Window Glass Area [ft2]':832.47,'Lighting [Btu/h-ft2]':2.5127,'People [ft2 per person]':7.44,'Plug and Process [Btu/h-ft2]':1.1958}
-    ];
-
-    r.endUses.main = [
-      {_name:'Heating','':'Heating','Electricity [kBtu]':0,'Natural Gas [kBtu]':88933.59,'District Heating [kBtu]':20237.93},
-      {_name:'Cooling','':'Cooling','Electricity [kBtu]':6332.90,'District Cooling [kBtu]':6644.58},
-      {_name:'Interior Lighting','':'Interior Lighting','Electricity [kBtu]':659.09},
-      {_name:'Interior Equipment','':'Interior Equipment','Electricity [kBtu]':313.66},
-      {_name:'Fans','':'Fans','Electricity [kBtu]':8303.21},
-      {_name:'Pumps','':'Pumps','Electricity [kBtu]':319.78}
-    ];
-
-    r.monthly.electricity = {
-      cooling:[1.29,3.94,6.34,50.09,157.58,350.17,448.3,517.5,229.13,77.38,11.53,1.5],
-      interiorLighting:[16.39,14.81,16.39,15.87,16.39,15.87,16.39,16.39,15.87,16.39,15.87,16.39],
-      interiorEquipment:[7.80,7.05,7.80,7.55,7.80,7.55,7.80,7.80,7.55,7.80,7.55,7.80],
-      fans:[145.30,119.87,125.49,135.33,214.96,330.30,349.46,390.26,225.76,128.25,120.30,146.53],
-      pumps:[15.06,10.01,7.48,2.64,3.70,6.82,8.51,10.30,4.43,2.92,6.53,15.25]
-    };
-    r.monthly.naturalGas = { heating:[19.65,14.57,12.21,4.83,1.94,0.15,0.02,0.04,0.73,3.82,11.15,19.83] };
-    r.annual = { totalSiteEnergy:131804.73, totalElectricity:4665.11, eui:1817.06, buildingArea:72.54 };
-    computeTotals(r);
-    return r;
-  }
-
-  function getDemoData2() {
-    var r = getDemoData();
-    r.fileName = 'Demo_K-HVAC_Systems_loads4.html';
-    r.timestamp = '2026-02-05 17:26:32';
-    r.peakLoads.cooling = r.peakLoads.cooling.map(function(row) {
-      var nr = {}; for (var k in row) nr[k] = row[k];
-      if (/roof|exterior wall|fenestration/i.test(row._name||'')) {
-        nr['Total [Btu/h]'] = Math.round((row['Total [Btu/h]']||0)*0.75*100)/100;
-        nr['%Grand Total'] = Math.round((row['%Grand Total']||0)*0.75*100)/100;
-      }
-      return nr;
-    });
-    r.peakLoads.heating = r.peakLoads.heating.map(function(row) {
-      var nr = {}; for (var k in row) nr[k] = row[k];
-      if (/roof|exterior wall|fenestration/i.test(row._name||'')) {
-        nr['Total [Btu/h]'] = Math.round((row['Total [Btu/h]']||0)*0.75*100)/100;
-      }
-      return nr;
-    });
-    return r;
-  }
-
   /* ====================== Public API ====================== */
   return {
-    parse: parse, getDemoData: getDemoData, getDemoData2: getDemoData2,
+    parse: parse,
     MONTHS: MONTHS, SI_CONV: SI_CONV,
     convertValueSI: convertValueSI, convertHeaderSI: convertHeaderSI
   };
