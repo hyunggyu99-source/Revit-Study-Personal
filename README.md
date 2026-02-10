@@ -4,8 +4,8 @@
 
 ## Web Dashboard
 
-- **[연간 건물 에너지 분석 (Annual Building Systems)](https://catsony5-web.github.io/Revit-Study-Personal/Annual_Building_Systems/Web_Dashboard/)** — OpenStudio/EnergyPlus HTM 보고서 분석 대시보드
-- **[HVAC 기계설비 분석 대시보드](https://catsony5-web.github.io/Revit-Study-Personal/Revit_Energy_Analysis/Web_Dashboard/)** — Revit 에너지 분석 대시보드
+- **[연간 건물 에너지 분석 (Annual Building Systems)](https://catsony5-web.github.io/Revit-Study-Personal/annual-building-systems/)** — OpenStudio/EnergyPlus HTM 보고서 분석 대시보드
+- **[HVAC 기계설비 분석 대시보드](https://catsony5-web.github.io/Revit-Study-Personal/)** — Revit 에너지 분석 대시보드
 
 ## 문서
 
