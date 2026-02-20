@@ -1,4 +1,4 @@
-# ☀️ Revit Solar Analysis (레빗 태양열 해석) 완벽 가이드
+# ☀️ Revit Solar Analysis (레빗 태양열 해석) 가이드
 
 ![Solar Analysis 결과 - 태양 경로와 히트맵 시각화](../images/solar_result_sunpath_overview.png)
 
